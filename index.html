@@ -3,30 +3,102 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#050608">
+<meta name="theme-color" content="#060708">
+<meta name="color-scheme" content="dark">
 <title>ORBITAL — Infrastructure Beyond Earth</title>
-<style>
-:root{--bg:#050608;--fg:#f3f2ed;--muted:#8f969d;--acid:#c9ff53;--blue:#54a7ff;--line:rgba(255,255,255,.14)}
-*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--fg);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}body{overflow-x:hidden}.grain{position:fixed;inset:0;z-index:99;pointer-events:none;opacity:.045;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}.nav{position:fixed;z-index:80;left:0;right:0;top:0;padding:max(20px,env(safe-area-inset-top)) 5vw 16px;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(#050608dd,#05060800)}.brand{display:flex;align-items:center;gap:12px;font-size:13px;font-weight:700;letter-spacing:.19em}.mark{width:30px;height:30px;border:1px solid #fff;border-radius:50%;position:relative}.mark:after{content:"";position:absolute;width:40px;height:1px;background:#fff;left:-5px;top:14px;transform:rotate(-43deg)}.cta{border:1px solid rgba(255,255,255,.26);border-radius:999px;padding:10px 15px;font-size:11px;letter-spacing:.14em}.progress{position:fixed;z-index:70;right:14px;top:44%;width:2px;height:28vh;background:rgba(255,255,255,.13)}.progress i{display:block;width:2px;height:0;background:var(--acid)}.scene{min-height:100svh;position:relative;overflow:hidden;display:flex;align-items:center;padding:110px 6vw 64px}.hero{min-height:140svh}.stars{position:absolute;inset:0;background-image:radial-gradient(circle,#fff 0 1px,transparent 1.1px);background-size:90px 90px;opacity:.12;transform:rotate(11deg) scale(1.5)}.earth{position:absolute;width:min(90vw,1000px);aspect-ratio:1;border-radius:50%;left:65%;top:57%;transform:translate(-50%,-50%);background:radial-gradient(circle at 34% 28%,#37536e 0 3%,#11202d 24%,#071019 50%,#020304 69%);box-shadow:0 0 140px rgba(72,166,255,.18),inset -130px -80px 150px #000}.earth:before{content:"";position:absolute;inset:-2%;border-radius:50%;border:2px solid rgba(95,178,255,.4);filter:blur(2px)}.earth:after{content:"";position:absolute;inset:0;border-radius:50%;background:radial-gradient(ellipse at 42% 37%,rgba(167,189,149,.23),transparent 20%),radial-gradient(ellipse at 61% 54%,rgba(78,116,88,.2),transparent 26%)}.hero-copy{position:relative;z-index:4;max-width:900px;align-self:flex-start;margin-top:12vh}.eyebrow{color:var(--acid);font-size:11px;letter-spacing:.28em;text-transform:uppercase;margin-bottom:18px}.hero h1{font-size:clamp(64px,11vw,170px);line-height:.8;letter-spacing:-.075em;text-transform:uppercase;margin:0;font-weight:700}.hero h1 span{display:block}.hero p{max-width:440px;color:#abb1b8;line-height:1.65;font-size:14px;margin-top:26px}.vehicle{position:absolute;z-index:5;left:62%;top:62%;width:190px;height:90px;transform:rotate(-7deg)}.vehicle .box{position:absolute;width:112px;height:42px;background:#e6e9ea;left:54px;top:19px}.vehicle .cab{position:absolute;width:50px;height:42px;background:var(--acid);left:12px;top:25px;clip-path:polygon(0 30%,24% 0,100% 0,100% 100%,0 100%)}.wheel{position:absolute;width:24px;height:24px;background:#252a2e;border:6px solid #0b0c0e;border-radius:50%;bottom:0}.w1{left:32px}.w2{right:7px}.ghost{position:absolute;left:50%;bottom:-3%;transform:translateX(-50%);font-size:clamp(100px,20vw,320px);font-weight:800;letter-spacing:-.08em;color:rgba(255,255,255,.028);white-space:nowrap}.statement{background:#efede5;color:#101215}.statement .copy{width:min(100%,1100px);margin:auto}.statement h2{font-family:Georgia,serif;font-weight:400;font-size:clamp(56px,9vw,130px);line-height:.91;letter-spacing:-.06em;margin:0;max-width:980px}.statement h2 em{color:#69706c}.statement p{max-width:430px;color:#596064;line-height:1.7;margin-top:28px}.network{background:radial-gradient(circle at 50% 50%,#0d1722,#050608 62%)}.globe{position:absolute;width:min(76vw,740px);aspect-ratio:1;border-radius:50%;left:52%;top:52%;transform:translate(-50%,-50%);border:1px solid rgba(255,255,255,.18);background:radial-gradient(circle at 38% 32%,rgba(84,167,255,.18),rgba(5,6,8,.4) 50%,#010203 72%);box-shadow:inset -100px -40px 140px #000,0 0 100px rgba(84,167,255,.08)}.globe:before,.globe:after{content:"";position:absolute;inset:13%;border-radius:50%;border:1px solid rgba(255,255,255,.1)}.globe:after{inset:35% 7%;border-color:rgba(201,255,83,.32)}.route{position:absolute;inset:24%;border-top:2px solid var(--acid);border-radius:50%;transform:rotate(18deg);filter:drop-shadow(0 0 8px var(--acid))}.stats{position:relative;z-index:4;width:100%;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-self:flex-end}.stat b{display:block;font-size:clamp(34px,6vw,72px);letter-spacing:-.06em}.stat span{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#9299a0}.machine{min-height:120svh;background:radial-gradient(circle at 50% 50%,rgba(201,255,83,.05),transparent 42%)}.machine-copy{position:relative;z-index:3;max-width:470px;align-self:flex-start}.machine h2,.moon h2,.final h2{font-family:Georgia,serif;font-weight:400;font-size:clamp(48px,7vw,102px);line-height:.95;letter-spacing:-.055em;margin:0}.machine p,.moon p{color:#969da3;line-height:1.7;max-width:400px}.core{position:absolute;left:50%;top:62%;width:150px;height:150px;border:1px solid var(--acid);border-radius:26px;transform:translate(-50%,-50%) rotate(10deg);background:linear-gradient(145deg,rgba(201,255,83,.13),rgba(255,255,255,.02));box-shadow:0 0 70px rgba(201,255,83,.08)}.module{position:absolute;width:140px;height:82px;border:1px solid rgba(255,255,255,.16);border-radius:15px;display:grid;place-items:center;font-size:10px;letter-spacing:.14em;text-transform:uppercase;background:rgba(255,255,255,.03);backdrop-filter:blur(8px)}.m1{left:13%;top:48%}.m2{right:11%;top:47%}.m3{left:18%;bottom:14%}.m4{right:16%;bottom:13%}.moon{min-height:130svh;background:radial-gradient(circle at 50% 20%,#20262c,#07090b 47%,#020304)}.moon-disc{position:absolute;width:min(84vw,820px);aspect-ratio:1;border-radius:50%;left:68%;top:60%;transform:translate(-50%,-50%);background:radial-gradient(circle at 31% 27%,#d5d0c4 0 4%,#878982 20%,#505451 45%,#272b2a 70%,#0d0f10 100%);box-shadow:inset -130px -80px 160px rgba(0,0,0,.78),0 0 140px rgba(255,255,255,.05)}.moon-disc:after{content:"";position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 26% 43%,rgba(0,0,0,.45) 0 3%,transparent 4%),radial-gradient(circle at 55% 23%,rgba(0,0,0,.35) 0 5%,transparent 6%),radial-gradient(circle at 67% 62%,rgba(0,0,0,.35) 0 4%,transparent 5%)}.moon-copy{position:relative;z-index:3;align-self:flex-start;max-width:520px}.rover{position:absolute;z-index:5;left:52%;bottom:12%;width:220px;height:94px}.rover .body{position:absolute;width:125px;height:48px;background:#d9dcdb;left:48px;top:15px}.rover .arm{position:absolute;width:105px;height:8px;background:#8e9495;left:36px;top:5px;transform:rotate(-22deg);transform-origin:right}.rover .wheel{bottom:0}.rover .w1{left:38px}.rover .w2{left:105px}.rover .w3{left:169px}.telemetry{position:absolute;right:6vw;top:28%;font:10px/1.8 ui-monospace,monospace;letter-spacing:.1em;color:#778087}.projects{display:block;padding-top:18vh;background:#0b0d0f}.projects h2{font-size:clamp(56px,8vw,110px);font-family:Georgia,serif;font-weight:400;letter-spacing:-.055em;margin:0 0 8vh}.cards{display:grid;grid-template-columns:repeat(3,minmax(280px,1fr));gap:18px}.card{min-height:64vh;border:1px solid rgba(255,255,255,.12);position:relative;overflow:hidden;padding:26px;display:flex;flex-direction:column;justify-content:flex-end}.card:before{content:"";position:absolute;inset:0;background:linear-gradient(140deg,rgba(84,167,255,.14),transparent 40%),repeating-linear-gradient(0deg,transparent 0 24px,rgba(255,255,255,.035) 25px),repeating-linear-gradient(90deg,transparent 0 24px,rgba(255,255,255,.035) 25px);transition:.5s}.card:hover:before{transform:scale(1.08) rotate(1deg)}.card small{position:absolute;top:24px;left:24px;color:var(--acid);letter-spacing:.17em}.card h3{font-size:38px;letter-spacing:-.04em;margin:0 0 8px}.card p{color:#8f979d;max-width:330px;line-height:1.55}.final{min-height:120svh;text-align:center;justify-content:center;background:radial-gradient(circle at 50% 62%,#10253a 0,#050608 48%)}.final:before{content:"";position:absolute;width:min(88vw,900px);aspect-ratio:1;border-radius:50%;left:50%;top:76%;transform:translate(-50%,-50%);background:radial-gradient(circle at 42% 32%,#284b68,#07101a 47%,#010203 70%);box-shadow:0 0 140px rgba(84,167,255,.16)}.final .inner{position:relative;z-index:4}.final h2{font-size:clamp(58px,10vw,150px);text-transform:uppercase;line-height:.82}.final a{display:inline-flex;align-items:center;gap:14px;margin-top:34px;border:1px solid rgba(255,255,255,.24);padding:14px 18px;border-radius:999px;letter-spacing:.14em;font-size:11px}.final a i{font-style:normal;color:var(--acid)}
-@media(max-width:760px){.nav{padding-left:18px;padding-right:18px}.brand{font-size:11px}.cta{font-size:10px;padding:9px 12px}.scene{padding-left:22px;padding-right:22px}.hero{min-height:125svh}.hero-copy{margin-top:8vh}.hero h1{font-size:clamp(58px,19vw,88px)}.hero p{font-size:13px;max-width:74vw}.earth{width:115vw;left:64%;top:68%}.vehicle{width:145px;transform:scale(.82) rotate(-7deg);left:58%;top:70%}.ghost{font-size:27vw}.statement{min-height:105svh;align-items:flex-start;padding-top:20vh}.statement h2{font-size:15vw}.network{min-height:115svh}.globe{width:103vw;left:58%;top:48%}.stats{grid-template-columns:1fr;gap:16px;align-self:flex-end;padding-bottom:2vh}.stat b{font-size:44px}.machine{align-items:flex-start;padding-top:18vh}.machine h2,.moon h2{font-size:13vw}.core{top:68%;width:120px;height:120px}.module{width:112px;height:68px;font-size:8px}.m1{left:4%;top:55%}.m2{right:2%;top:56%}.m3{left:9%;bottom:10%}.m4{right:7%;bottom:9%}.moon{align-items:flex-start;padding-top:17vh}.moon-disc{width:118vw;left:66%;top:70%}.rover{transform:scale(.72);left:41%;bottom:7%}.telemetry{top:auto;bottom:24%;right:18px;font-size:8px}.projects{padding-top:16vh}.projects h2{font-size:14vw}.cards{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:25px}.card{min-width:83vw;scroll-snap-align:start;min-height:62svh}.final h2{font-size:15vw}.progress{right:7px}}
-</style>
+<link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-<div class="grain"></div><div class="progress"><i></i></div>
-<header class="nav"><div class="brand"><span class="mark"></span>ORBITAL</div><a class="cta" href="#final">START A PROJECT</a></header>
-<main>
-<section class="scene hero" id="hero"><div class="stars"></div><div class="earth" data-speed="-.08"></div><div class="hero-copy" data-speed=".08"><div class="eyebrow">Infrastructure beyond Earth</div><h1><span>We build</span><span>where roads</span><span>end.</span></h1><p>Autonomous systems for places that are too remote, too dangerous, or simply not built yet.</p></div><div class="vehicle" data-speed="-.16"><div class="box"></div><div class="cab"></div><div class="wheel w1"></div><div class="wheel w2"></div></div><div class="ghost">INFRASTRUCTURE</div></section>
-<section class="scene statement"><div class="copy"><div class="eyebrow" style="color:#555d61">The human reason</div><h2>Technology disappears <em>when it works.</em></h2><p>We build systems so people spend less time operating machinery and more time deciding what deserves to exist.</p></div></section>
-<section class="scene network"><div class="globe" data-speed="-.06"><div class="route"></div></div><div class="stats"><div class="stat"><b>47</b><span>Autonomous sites</span></div><div class="stat"><b>18,400</b><span>km coordinated</span></div><div class="stat"><b>99.997%</b><span>Network availability</span></div></div></section>
-<section class="scene machine"><div class="machine-copy"><div class="eyebrow">Inside the system</div><h2>Autonomy is the architecture.</h2><p>Every machine understands its terrain, mission, and network around it. The system keeps working when the network does not.</p></div><div class="core" data-speed="-.08"></div><div class="module m1" data-speed=".10">LiDAR Array</div><div class="module m2" data-speed="-.07">Vision Stack</div><div class="module m3" data-speed=".07">Power Core</div><div class="module m4" data-speed="-.10">Drive System</div></section>
-<section class="scene moon"><div class="moon-disc" data-speed="-.05"></div><div class="moon-copy"><div class="eyebrow">Mission 07 / Shackleton Rim</div><h2>Build before anyone arrives.</h2><p>Robotic construction systems survey, coordinate, and assemble infrastructure before human crews enter the environment.</p></div><div class="rover" data-speed="-.10"><div class="body"></div><div class="arm"></div><div class="wheel w1"></div><div class="wheel w2"></div><div class="wheel w3"></div></div><div class="telemetry">TERRAIN LOCK&nbsp; 98.7%<br>LOCAL GRID&nbsp;&nbsp;&nbsp; ACTIVE<br>ROVER 03&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ONLINE<br>BUILD VECTOR&nbsp; 072.4°</div></section>
-<section class="scene projects"><div class="eyebrow">Selected systems</div><h2>Proof, not promises.</h2><div class="cards"><article class="card"><small>01 / ANTARCTIC</small><h3>White Horizon</h3><p>Autonomous energy and logistics infrastructure operating through polar winter.</p></article><article class="card"><small>02 / ORBIT</small><h3>Relay One</h3><p>Self-coordinating cargo handoff infrastructure for orbital construction.</p></article><article class="card"><small>03 / LUNAR</small><h3>Shackleton 07</h3><p>Pre-crew survey and autonomous habitat assembly at the lunar south pole.</p></article></div></section>
-<section class="scene final" id="final"><div class="inner"><div class="eyebrow">Earth · Orbit · Lunar</div><h2>The next world<br>will still need<br>builders.</h2><a href="#hero"><i>↗</i>START A PROJECT</a></div></section>
+<canvas id="world" aria-hidden="true"></canvas>
+<div class="noise" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+<header class="topbar">
+  <a class="brand" href="#top" aria-label="Orbital home"><span class="orbital-mark"><i></i></span><b>ORBITAL</b></a>
+  <nav class="desktop-nav" aria-label="Primary"><a href="#systems">Systems</a><a href="#mission">Mission</a><a href="#projects">Projects</a></nav>
+  <a class="top-cta" href="#contact">Build with us <span>↗</span></a>
+</header>
+<div class="story-rail" aria-hidden="true"><span id="railFill"></span><b id="railIndex">01</b></div>
+<main id="top">
+  <section class="chapter hero" data-chapter="01" data-scene="earth">
+    <div class="hero-copy copy-left">
+      <p class="kicker">Infrastructure beyond Earth · 2044</p>
+      <h1><span>WE BUILD</span><span>WHERE ROADS</span><span class="outline">END.</span></h1>
+      <p class="lede">Autonomous infrastructure for places that are too remote, too dangerous, or simply not built yet.</p>
+      <div class="scroll-cue"><i></i><span>Scroll to direct</span></div>
+    </div>
+    <div class="telemetry hero-telemetry"><span>ORBITAL VECTOR</span><strong>18.2412° N</strong><span>SYS / NOMINAL</span></div>
+  </section>
+
+  <section class="chapter network" data-chapter="02" data-scene="network" id="systems">
+    <div class="chapter-label"><span>02</span> Global autonomy</div>
+    <div class="network-copy copy-right">
+      <p class="kicker">One system. Any horizon.</p>
+      <h2>Machines that coordinate before people need to.</h2>
+      <p>Orbital systems connect remote freight, energy and field infrastructure into one autonomous operational layer.</p>
+    </div>
+    <div class="stat-bank">
+      <article><b data-count="47">47</b><span>Autonomous sites</span></article>
+      <article><b data-count="18400">18,400</b><span>km coordinated</span></article>
+      <article><b>99.997%</b><span>Network availability</span></article>
+    </div>
+  </section>
+
+  <section class="chapter machine" data-chapter="03" data-scene="machine">
+    <div class="chapter-label"><span>03</span> System anatomy</div>
+    <div class="machine-copy copy-left">
+      <p class="kicker">Autonomy, made physical.</p>
+      <h2>Every decision has a machine behind it.</h2>
+      <p>Scroll to disassemble the vehicle intelligence stack, then tap a subsystem to inspect its field of work.</p>
+    </div>
+    <div class="module-ui" id="moduleUI" aria-label="Subsystem selector">
+      <button data-module="vision"><span>01</span>Vision</button>
+      <button data-module="lidar"><span>02</span>LiDAR</button>
+      <button data-module="compute"><span>03</span>Compute</button>
+      <button data-module="energy"><span>04</span>Energy</button>
+    </div>
+    <div class="module-readout" id="moduleReadout">SELECT A SUBSYSTEM</div>
+  </section>
+
+  <section class="chapter human" data-chapter="04" data-scene="human" id="mission">
+    <div class="human-frame" aria-hidden="true"><div class="helmet-glass"></div><div class="shoulder"></div></div>
+    <div class="human-copy">
+      <p class="kicker dark">The human reason</p>
+      <h2>Technology disappears<br><em>when it works.</em></h2>
+      <p>We build systems so people spend less time operating machinery and more time deciding what deserves to exist.</p>
+    </div>
+  </section>
+
+  <section class="chapter lunar" data-chapter="05" data-scene="lunar">
+    <div class="chapter-label"><span>05</span> Off-world construction</div>
+    <div class="lunar-copy copy-left">
+      <p class="kicker">No road. No crew. No problem.</p>
+      <h2>Build the site before the first person arrives.</h2>
+      <p>The same autonomy layer expands from terrestrial logistics into construction, power and habitat deployment.</p>
+    </div>
+    <div class="build-meter"><span>Construction sequence</span><i><b id="buildFill"></b></i><strong id="buildPct">00%</strong></div>
+  </section>
+
+  <section class="chapter blueprint" data-chapter="06" data-scene="blueprint" id="projects">
+    <div class="project-head">
+      <p class="kicker dark">Selected systems</p>
+      <h2>Built for the places that come next.</h2>
+    </div>
+    <div class="projects-track">
+      <article class="project-card freight"><span>A01</span><div class="project-art"><i></i><b></b></div><h3>Autonomous Freight</h3><p>Self-routing heavy cargo for remote industrial networks.</p></article>
+      <article class="project-card energy"><span>A02</span><div class="project-art"><i></i><b></b></div><h3>Remote Energy</h3><p>Deployable microgrids that predict and balance field demand.</p></article>
+      <article class="project-card habitat"><span>A03</span><div class="project-art"><i></i><b></b></div><h3>Off-world Habitat</h3><p>Robotic site preparation and modular habitat assembly.</p></article>
+    </div>
+  </section>
+
+  <section class="chapter finale" data-chapter="07" data-scene="final" id="contact">
+    <div class="final-copy">
+      <p class="kicker">Earth · Orbit · Moon</p>
+      <h2>THE NEXT WORLD<br>WILL STILL NEED<br><span>BUILDERS.</span></h2>
+      <a href="mailto:hello@orbital.example">Build with us <b>↗</b></a>
+    </div>
+    <footer><span>ORBITAL / 2044</span><span>Autonomous infrastructure for the places that come next.</span></footer>
+  </section>
 </main>
-<script>
-const progress=document.querySelector('.progress i');const movers=[...document.querySelectorAll('[data-speed]')];let ticking=false;
-function render(){const max=document.documentElement.scrollHeight-innerHeight;const p=max?scrollY/max:0;progress.style.height=(p*100)+'%';movers.forEach(el=>{const r=el.closest('.scene').getBoundingClientRect();const center=r.top+r.height/2-innerHeight/2;const s=parseFloat(el.dataset.speed||0);el.style.translate=`0 ${center*s}px`});ticking=false}
-addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(render);ticking=true}},{passive:true});addEventListener('resize',render);render();
-</script>
+<script src="./app.js" defer></script>
 </body>
 </html>
