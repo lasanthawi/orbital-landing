@@ -3,120 +3,64 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#050607">
+<meta name="theme-color" content="#07090a">
+<meta name="color-scheme" content="dark">
 <title>ORBITAL — Infrastructure Beyond Earth</title>
+<meta name="description" content="Autonomous infrastructure for places that are too remote, too dangerous, or simply not built yet.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Inter:wght@400;500;600;700&family=Libre+Caslon+Display&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-<canvas id="world" aria-hidden="true"></canvas>
-<div class="noise" aria-hidden="true"></div>
-<div class="vignette" aria-hidden="true"></div>
-<header class="topbar">
-  <a class="brand" href="#top" aria-label="Orbital home"><span class="orbital-mark"><i></i></span><b>ORBITAL</b></a>
-  <nav class="desktop-nav" aria-label="Primary"><a href="#systems">Systems</a><a href="#mission">Mission</a><a href="#projects">Projects</a></nav>
-  <a class="top-cta" href="#contact">Build with us <span>↗</span></a>
+<div class="site-progress" aria-hidden="true"><i id="progressFill"></i></div>
+<header class="topbar" id="topbar">
+  <a class="brand" href="#top" aria-label="Orbital home"><span class="mark"><i></i></span><span>ORBITAL</span></a>
+  <nav class="nav-links" aria-label="Primary navigation"><a href="#systems">Systems</a><a href="#mission">Mission</a><a href="#projects">Projects</a></nav>
+  <a class="contact-link" href="#contact">Build with us <span>↗</span></a>
 </header>
-<div class="story-rail" aria-hidden="true"><span id="railFill"></span><b id="railIndex">01</b></div>
 <main id="top">
-  <section class="chapter hero" data-chapter="01" data-scene="earth">
-    <div class="chapter-inner hero-inner">
-      <div class="hero-copy copy-left">
-        <p class="kicker">Infrastructure beyond Earth · 2044</p>
-        <h1><span>WE BUILD</span><span>WHERE ROADS</span><span class="outline">END.</span></h1>
-        <p class="lede">Autonomous infrastructure for places that are too remote, too dangerous, or simply not built yet.</p>
-        <div class="scroll-cue"><i></i><span>Scroll to direct</span></div>
-      </div>
-      <div class="telemetry hero-telemetry"><span>ORBITAL VECTOR</span><strong>18.2412° N</strong><span>SYS / NOMINAL</span></div>
+  <section class="hero dark-section section" data-section="dark">
+    <div class="hero-media media-parallax"><img src="https://www.nasa.gov/wp-content/uploads/2026/05/stmd-exteriorlunarbase-hdlandscapeversion-2026-0521.png" alt="NASA concept rendering of sustained lunar surface operations" fetchpriority="high"><div class="media-shade"></div></div>
+    <div class="hero-grid wrap">
+      <div class="hero-copy reveal"><p class="eyebrow">Infrastructure beyond Earth</p><h1>We build<br>where roads<br><em>end.</em></h1><p class="lede">Autonomous infrastructure for places that are too remote, too dangerous, or simply not built yet.</p></div>
+      <div class="hero-note reveal delay-1"><span>Earth · Orbit · Moon</span><b>Systems for the places that come next.</b></div>
     </div>
+    <a class="scroll-cue" href="#systems" aria-label="Continue to systems"><span>Scroll to explore</span><i>↓</i></a>
   </section>
-
-  <section class="chapter network" data-chapter="02" data-scene="network" id="systems">
-    <div class="chapter-inner">
-      <div class="chapter-label"><span>02</span> Global autonomy</div>
-      <div class="network-copy copy-right">
-        <p class="kicker">One system. Any horizon.</p>
-        <h2>Machines that coordinate before people need to.</h2>
-        <p>Orbital systems connect remote freight, energy and field infrastructure into one autonomous operational layer.</p>
-      </div>
-      <div class="stat-bank">
-        <article><b>47</b><span>Autonomous sites</span></article>
-        <article><b>18,400</b><span>km coordinated</span></article>
-        <article><b>99.997%</b><span>Network availability</span></article>
-      </div>
-    </div>
+  <section class="section systems dark-section" id="systems" data-section="dark">
+    <div class="wrap systems-grid"><div class="section-copy reveal"><p class="eyebrow">01 / Global autonomy</p><h2>Machines that coordinate before people need to.</h2><p>Remote freight, power and field infrastructure become one operational layer. Each asset understands its role, shares context and adapts to changing conditions.</p></div>
+      <div class="metrics reveal delay-1"><article><span>01</span><strong>47</strong><p>Autonomous sites</p></article><article><span>02</span><strong>18,400</strong><p>km coordinated</p></article><article><span>03</span><strong>99.997%</strong><p>Network availability</p></article></div></div>
   </section>
-
-  <section class="chapter machine" data-chapter="03" data-scene="machine">
-    <div class="chapter-inner">
-      <div class="chapter-label"><span>03</span> System anatomy</div>
-      <div class="machine-copy copy-left">
-        <p class="kicker">Autonomy, made physical.</p>
-        <h2>Every decision has a machine behind it.</h2>
-        <p>Scroll to disassemble the vehicle intelligence stack, then tap a subsystem to inspect its field of work.</p>
-      </div>
-      <div class="module-panel">
-        <div class="module-ui" id="moduleUI" aria-label="Subsystem selector">
-          <button data-module="vision"><span>01</span>Vision</button>
-          <button data-module="lidar"><span>02</span>LiDAR</button>
-          <button data-module="compute"><span>03</span>Compute</button>
-          <button data-module="energy"><span>04</span>Energy</button>
-        </div>
-        <div class="module-readout" id="moduleReadout">SELECT A SUBSYSTEM</div>
+  <section class="section platform dark-section" data-section="dark">
+    <div class="platform-media media-parallax"><img src="https://www.nasa.gov/wp-content/uploads/2026/05/logistics-rover-beautyshot.png" alt="NASA rendering of a robotic logistics rover on the Moon" loading="lazy"><div class="media-shade side"></div></div>
+    <div class="wrap platform-grid"><div class="section-copy reveal"><p class="eyebrow">02 / System anatomy</p><h2>Autonomy, made physical.</h2><p>Perception, route planning, energy and motion operate as one stack. The hardware is visible. The complexity is not.</p></div>
+      <ol class="capability-list reveal delay-1"><li><span>01</span><div><b>Vision</b><p>Stereo perception and contextual scene understanding.</p></div></li><li><span>02</span><div><b>LiDAR</b><p>Continuous terrain mapping and obstacle awareness.</p></div></li><li><span>03</span><div><b>Compute</b><p>Local planning with resilient offline decision-making.</p></div></li><li><span>04</span><div><b>Energy</b><p>Predictive load balancing and mission-aware power use.</p></div></li></ol></div>
+  </section>
+  <section class="section human light-section" id="mission" data-section="light">
+    <div class="wrap human-grid"><div class="human-copy reveal"><p class="eyebrow dark">03 / The human reason</p><h2>Technology disappears <em>when it works.</em></h2><p>We build systems so people spend less time operating machinery and more time deciding what deserves to exist.</p></div>
+      <figure class="human-photo reveal delay-1"><img src="https://images-assets.nasa.gov/image/as17-140-21497/as17-140-21497~large.jpg" alt="Apollo astronaut working beside a large lunar boulder" loading="lazy"><figcaption>Human judgement remains the point of the system.</figcaption></figure></div>
+  </section>
+  <section class="section lunar dark-section" data-section="dark">
+    <div class="lunar-media media-parallax"><img src="https://www.nasa.gov/wp-content/uploads/2026/05/corehab-beautyshot.png" alt="NASA rendering of a conceptual lunar habitation module" loading="lazy"><div class="media-shade"></div></div>
+    <div class="wrap lunar-layout"><div class="section-copy reveal"><p class="eyebrow">04 / Off-world construction</p><h2>Build the site before the first person arrives.</h2><p>The same autonomy layer expands from terrestrial logistics into construction, power and habitat deployment.</p></div>
+      <div class="sequence reveal delay-1"><div><span>01</span><b>Survey</b><p>Map terrain and identify viable operating zones.</p></div><div><span>02</span><b>Prepare</b><p>Establish routes, power and equipment staging.</p></div><div><span>03</span><b>Deploy</b><p>Position infrastructure and assemble modular systems.</p></div></div></div>
+  </section>
+  <section class="section projects light-section" id="projects" data-section="light">
+    <div class="wrap"><header class="projects-head reveal"><p class="eyebrow dark">05 / Selected systems</p><h2>Built for the places that come next.</h2></header>
+      <div class="project-list">
+        <article class="project reveal"><div class="project-media"><img src="https://images.unsplash.com/photo-1697057914230-320d7c251f65?auto=format&fit=crop&fm=jpg&q=82&w=2200" alt="Automated guided freight vehicles operating at a container terminal" loading="lazy"></div><div class="project-meta"><span>A01</span><div><h3>Autonomous Freight</h3><p>Self-routing heavy cargo for remote industrial networks and ports.</p></div><b>Logistics</b></div></article>
+        <article class="project reveal"><div class="project-media"><img src="https://images.unsplash.com/photo-1674606071893-2a9023075f70?auto=format&fit=crop&fm=jpg&q=82&w=2200" alt="Large photovoltaic solar farm in a desert" loading="lazy"></div><div class="project-meta"><span>A02</span><div><h3>Remote Energy</h3><p>Deployable microgrids that predict and balance field demand.</p></div><b>Power</b></div></article>
+        <article class="project reveal"><div class="project-media"><img src="https://www.nasa.gov/wp-content/uploads/2026/05/corehab-beautyshot.png" alt="NASA concept of a lunar habitation module" loading="lazy"></div><div class="project-meta"><span>A03</span><div><h3>Off-world Habitat</h3><p>Robotic site preparation and modular habitat assembly.</p></div><b>Habitat</b></div></article>
       </div>
     </div>
   </section>
-
-  <section class="chapter human" data-chapter="04" data-scene="human" id="mission">
-    <div class="chapter-inner human-inner">
-      <div class="human-frame" aria-hidden="true"><div class="helmet-glass"></div><div class="shoulder"></div></div>
-      <div class="human-copy">
-        <p class="kicker dark">The human reason</p>
-        <h2>Technology disappears<br><em>when it works.</em></h2>
-        <p>We build systems so people spend less time operating machinery and more time deciding what deserves to exist.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="chapter lunar" data-chapter="05" data-scene="lunar">
-    <div class="chapter-inner">
-      <div class="chapter-label"><span>05</span> Off-world construction</div>
-      <div class="lunar-copy copy-left">
-        <p class="kicker">No road. No crew. No problem.</p>
-        <h2>Build the site before the first person arrives.</h2>
-        <p>The same autonomy layer expands from terrestrial logistics into construction, power and habitat deployment.</p>
-      </div>
-      <div class="build-meter"><span>Construction sequence</span><i><b id="buildFill"></b></i><strong id="buildPct">00%</strong></div>
-    </div>
-  </section>
-
-  <section class="chapter blueprint" data-chapter="06" data-scene="blueprint" id="projects">
-    <div class="chapter-inner blueprint-inner">
-      <div class="project-head">
-        <p class="kicker dark">Selected systems</p>
-        <h2>Built for the places that come next.</h2>
-      </div>
-      <div class="projects-track">
-        <article class="project-card freight"><span>A01</span><div class="project-art"><i></i><b></b></div><h3>Autonomous Freight</h3><p>Self-routing heavy cargo for remote industrial networks.</p></article>
-        <article class="project-card energy"><span>A02</span><div class="project-art"><i></i><b></b></div><h3>Remote Energy</h3><p>Deployable microgrids that predict and balance field demand.</p></article>
-        <article class="project-card habitat"><span>A03</span><div class="project-art"><i></i><b></b></div><h3>Off-world Habitat</h3><p>Robotic site preparation and modular habitat assembly.</p></article>
-      </div>
-    </div>
-  </section>
-
-  <section class="chapter finale" data-chapter="07" data-scene="final" id="contact">
-    <div class="chapter-inner finale-inner">
-      <div class="final-copy">
-        <p class="kicker">Earth · Orbit · Moon</p>
-        <h2>THE NEXT WORLD<br>WILL STILL NEED<br><span>BUILDERS.</span></h2>
-        <a href="mailto:hello@orbital.example">Build with us <b>↗</b></a>
-      </div>
-      <footer><span>ORBITAL / 2044</span><span>Autonomous infrastructure for the places that come next.</span></footer>
-    </div>
+  <section class="section finale dark-section" id="contact" data-section="dark">
+    <div class="finale-media media-parallax"><img src="https://images-assets.nasa.gov/image/as17-140-21497/as17-140-21497~large.jpg" alt="Lunar landscape photographed during Apollo 17" loading="lazy"><div class="media-shade"></div></div>
+    <div class="wrap finale-inner reveal"><p class="eyebrow">Earth · Orbit · Moon</p><h2>The next world<br>will still need<br><em>builders.</em></h2><a class="primary-cta" href="mailto:hello@orbital.example">Build with us <span>↗</span></a></div>
+    <footer class="site-footer wrap"><span>ORBITAL / 2044</span><span>Concept imagery: NASA. Project photography: Unsplash.</span></footer>
   </section>
 </main>
+<button class="to-top" id="toTop" type="button" aria-label="Back to top"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m18 15-6-6-6 6"/><path d="M12 9v10"/></svg></button>
 <script src="./app.js" defer></script>
 </body>
 </html>
