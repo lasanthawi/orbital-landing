@@ -6,7 +6,8 @@
 <meta name="theme-color" content="#010205">
 <title>ORBITAL — Earth to the Unknown</title>
 <meta name="description" content="A scroll-directed cinematic journey from Earth through orbit, the planets and into a black hole.">
-<link rel="stylesheet" href="https://raw.githack.com/lasanthawi/orbital-landing/concept/deep-space-journey/styles.css">
+<link rel="stylesheet" href="./styles.css">
+<link rel="stylesheet" href="./cinematic-v2.css">
 <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js"}}</script>
 </head>
 <body>
@@ -30,7 +31,6 @@
 <div class="hint" id="hint"><span></span><b>SCROLL TO DIRECT FLIGHT</b><small>move pointer to look around</small></div>
 <main id="start" aria-hidden="true"><section></section><section></section><section></section><section></section><section></section><section></section><section></section><section></section><section></section><section id="final"></section></main>
 <div class="fallback" id="fallback" hidden><h1>ORBITAL</h1><p>This experience needs WebGL hardware acceleration.</p></div>
-<script type="module" src="https://raw.githack.com/lasanthawi/orbital-landing/concept/deep-space-journey/app.js"></script>
-<script>setTimeout(()=>{const l=document.getElementById('loader');if(l&&!l.classList.contains('done')){l.classList.add('done');document.getElementById('fallback').hidden=false;document.getElementById('fallback').innerHTML='<h1>ORBITAL</h1><p>The 3D module did not start in this preview browser. Open the preview in Safari or Chrome.</p>'}},6500)</script>
+<script type="module" src="./cinematic-v2.js"></script>
 </body>
 </html>
