@@ -1,0 +1,16 @@
+/* Deep-space cinematic pacing overrides */
+main section{height:235vh}
+main section:nth-child(2),main section:nth-child(4),main section:nth-child(6),main section:nth-child(7){height:270vh}
+main section:nth-child(8),main section:nth-child(9){height:220vh}
+main section:last-child{height:300vh}
+.moment{transition:opacity .9s ease,transform 1.25s cubic-bezier(.18,.7,.16,1),filter .9s ease}
+.moment.active{filter:none}
+.vignette{background:radial-gradient(circle at 50% 46%,transparent 40%,rgba(0,0,0,.24) 72%,rgba(0,0,0,.68) 100%)}
+#loader{transition:opacity .55s ease,visibility .55s}
+@media(max-width:780px){
+ main section{height:220vh}
+ main section:nth-child(2),main section:nth-child(4),main section:nth-child(6),main section:nth-child(7){height:250vh}
+ main section:nth-child(8),main section:nth-child(9){height:205vh}
+ main section:last-child{height:285vh}
+ .moment{transition:opacity .75s ease,transform 1.05s cubic-bezier(.18,.7,.16,1),filter .75s ease}
+}
