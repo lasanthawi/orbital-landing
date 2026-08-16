@@ -3,12 +3,66 @@ import * as THREE from 'three';
 const originalRender=THREE.WebGLRenderer.prototype.render;
 const V=(x,y,z)=>new THREE.Vector3(x,y,z);
 const mobile=()=>innerWidth<780;
-const subjects=[{c:V(0,-2,0),r:34},{c:V(-5,1.8,-47),r:27},{c:V(4,-1.4,-68),r:14},{c:V(4,-1,-112),r:31},{c:V(-7,1,-190),r:40},{c:V(12,0,-305),r:86},{c:V(-8,0,-445),r:126},{c:V(2,0,-650),r:145}];
-const shots=[{p:0,pos:[0,10,40],look:[-5,-2,0],roll:0},{p:.075,pos:[18,12,36],look:[-5,-2,0],roll:-.006},{p:.155,pos:[30,14,26],look:[-4,-2,0],roll:-.009},{p:.18,pos:[20,12,-23],look:[-1,1.8,-47],roll:-.008},{p:.225,pos:[4,16,-18],look:[-1,1.8,-47],roll:.004},{p:.285,pos:[-17,10,-28],look:[-1,1.8,-47],roll:.008},{p:.315,pos:[21,6,-50],look:[2,-1.4,-68],roll:.006},{p:.365,pos:[30,10,-80],look:[7,-1,-112],roll:-.004},{p:.405,pos:[30,9,-89],look:[9,-1,-112],roll:-.007},{p:.45,pos:[39,7,-112],look:[9,-1,-112],roll:0},{p:.495,pos:[29,5,-137],look:[9,-1,-112],roll:.006},{p:.515,pos:[28,13,-165],look:[-13,1,-190],roll:.006},{p:.565,pos:[38,9,-190],look:[-13,1,-190],roll:0},{p:.615,pos:[28,6,-216],look:[-13,1,-190],roll:-.006},{p:.635,pos:[103,22,-265],look:[20,0,-305],roll:-.007},{p:.69,pos:[111,16,-305],look:[20,0,-305],roll:0},{p:.755,pos:[95,18,-351],look:[20,0,-305],roll:.007},{p:.77,pos:[105,34,-332],look:[-8,0,-445],roll:.008},{p:.805,pos:[150,26,-404],look:[-8,0,-445],roll:.004},{p:.84,pos:[152,16,-486],look:[-8,0,-445],roll:-.004},{p:.875,pos:[105,-12,-558],look:[-8,0,-445],roll:-.008},{p:.905,pos:[48,24,-535],look:[0,3,-570],roll:-.004},{p:.935,pos:[122,48,-542],look:[2,0,-650],roll:.005},{p:.965,pos:[171,32,-650],look:[2,0,-650],roll:0},{p:.985,pos:[122,18,-770],look:[2,0,-650],roll:-.005},{p:1,pos:[72,12,-795],look:[2,0,-650],roll:0}];
+
+const subjects=[
+  {c:V(0,-2,0),r:62},
+  {c:V(-5,1.8,-47),r:38},
+  {c:V(4,-1.4,-68),r:30},
+  {c:V(4,-1,-112),r:58},
+  {c:V(-7,1,-190),r:74},
+  {c:V(12,0,-305),r:158},
+  {c:V(-8,0,-445),r:238},
+  {c:V(2,0,-650),r:250}
+];
+
+const shots=[
+  {p:0,pos:[0,18,72],look:[-5,-2,0],roll:0},
+  {p:.075,pos:[34,22,66],look:[-5,-2,0],roll:-.003},
+  {p:.155,pos:[52,24,50],look:[-4,-2,0],roll:-.004},
+  {p:.18,pos:[38,22,-5],look:[-3,1.8,-47],roll:-.003},
+  {p:.225,pos:[12,28,-3],look:[-3,1.8,-47],roll:.002},
+  {p:.285,pos:[-30,20,-8],look:[-3,1.8,-47],roll:.003},
+  {p:.315,pos:[40,14,-38],look:[3,-1.4,-68],roll:.003},
+  {p:.365,pos:[55,17,-61],look:[6,-1,-112],roll:-.002},
+  {p:.405,pos:[56,16,-70],look:[7,-1,-112],roll:-.003},
+  {p:.45,pos:[64,13,-112],look:[7,-1,-112],roll:0},
+  {p:.495,pos:[56,10,-154],look:[7,-1,-112],roll:.003},
+  {p:.515,pos:[59,22,-144],look:[-10,1,-190],roll:.003},
+  {p:.565,pos:[68,17,-190],look:[-10,1,-190],roll:0},
+  {p:.615,pos:[58,12,-236],look:[-10,1,-190],roll:-.003},
+  {p:.635,pos:[170,36,-246],look:[17,0,-305],roll:-.003},
+  {p:.69,pos:[178,28,-305],look:[17,0,-305],roll:0},
+  {p:.755,pos:[166,28,-370],look:[17,0,-305],roll:.003},
+  {p:.77,pos:[190,52,-282],look:[-8,0,-445],roll:.003},
+  {p:.805,pos:[232,42,-382],look:[-8,0,-445],roll:.002},
+  {p:.84,pos:[236,28,-506],look:[-8,0,-445],roll:-.002},
+  {p:.875,pos:[188,-18,-604],look:[-8,0,-445],roll:-.003},
+  {p:.905,pos:[115,38,-500],look:[0,2,-570],roll:-.002},
+  {p:.935,pos:[205,68,-520],look:[2,0,-650],roll:.002},
+  {p:.965,pos:[260,45,-650],look:[2,0,-650],roll:0},
+  {p:.985,pos:[205,28,-830],look:[2,0,-650],roll:-.002},
+  {p:1,pos:[145,18,-875],look:[2,0,-650],roll:0}
+];
+
 function smoother(x){x=THREE.MathUtils.clamp(x,0,1);return x*x*x*(x*(x*6-15)+10);}
 function sample(p){let a=shots[0],b=shots.at(-1);for(let i=0;i<shots.length-1;i++)if(p>=shots[i].p&&p<=shots[i+1].p){a=shots[i];b=shots[i+1];break;}const q=smoother((p-a.p)/(b.p-a.p));return{pos:V(...a.pos).lerp(V(...b.pos),q),look:V(...a.look).lerp(V(...b.look),q),roll:THREE.MathUtils.lerp(a.roll,b.roll,q)};}
-function enforceEnvelope(pos){for(const s of subjects){const off=pos.clone().sub(s.c),d=off.length();if(d<s.r){if(d<.001)off.set(1,.15,.3);pos.copy(s.c).add(off.normalize().multiplyScalar(s.r));}}return pos;}
+function enforceEnvelope(pos){for(const s of subjects){const off=pos.clone().sub(s.c),d=off.length();if(d<s.r){if(d<.001)off.set(1,.12,.25);pos.copy(s.c).add(off.normalize().multiplyScalar(s.r));}}return pos;}
+
 let wideProgress=0,last=performance.now();const widePos=V(...shots[0].pos),wideLook=V(...shots[0].look);
-THREE.WebGLRenderer.prototype.render=function(scene,camera){const now=performance.now(),dt=Math.min(.034,(now-last)/1000||.016);last=now;const max=Math.max(1,document.documentElement.scrollHeight-innerHeight);const target=THREE.MathUtils.clamp((scrollY||0)/max,0,1);const response=mobile()?.018:.02;wideProgress+=THREE.MathUtils.clamp((target-wideProgress)*response,-.0017,.0017);const s=sample(wideProgress);const posA=1-Math.pow(.0016,dt),lookA=1-Math.pow(.0024,dt);widePos.lerp(s.pos,posA*.30);wideLook.lerp(s.look,lookA*.26);enforceEnvelope(widePos);camera.position.copy(widePos);camera.up.set(Math.sin(s.roll),Math.cos(s.roll),0);camera.lookAt(wideLook);const wantedFov=mobile()?58:50;if(Math.abs(camera.fov-wantedFov)>.01){camera.fov=wantedFov;camera.updateProjectionMatrix();}return originalRender.call(this,scene,camera);};
-await import('./cinematic-v2.js?v=20260816-1315');
-await import('./nasa-models.js?v=20260816-1315');
+THREE.WebGLRenderer.prototype.render=function(scene,camera){
+  const now=performance.now(),dt=Math.min(.034,(now-last)/1000||.016);last=now;
+  const max=Math.max(1,document.documentElement.scrollHeight-innerHeight);
+  const target=THREE.MathUtils.clamp((scrollY||0)/max,0,1);
+  const response=mobile()?.012:.014;
+  wideProgress+=THREE.MathUtils.clamp((target-wideProgress)*response,-.00105,.00105);
+  const s=sample(wideProgress);
+  const posA=1-Math.pow(.0011,dt),lookA=1-Math.pow(.0018,dt);
+  widePos.lerp(s.pos,posA*.22);wideLook.lerp(s.look,lookA*.20);enforceEnvelope(widePos);
+  camera.position.copy(widePos);camera.up.set(Math.sin(s.roll),Math.cos(s.roll),0);camera.lookAt(wideLook);
+  const wantedFov=mobile()?52:46;
+  if(Math.abs(camera.fov-wantedFov)>.01){camera.fov=wantedFov;camera.updateProjectionMatrix();}
+  return originalRender.call(this,scene,camera);
+};
+
+await import('./cinematic-v2.js?v=20260816-1332');
+await import('./nasa-models.js?v=20260816-1332');
