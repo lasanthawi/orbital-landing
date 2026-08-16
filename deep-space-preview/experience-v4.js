@@ -33,16 +33,14 @@ let lastScrollY=scrollY,panTarget=0;
 addEventListener('scroll',()=>{if(Math.abs(scrollY-lastScrollY)>1){panTarget=0;lastScrollY=scrollY;}},{passive:true});
 
 function update(){
- const max=Math.max(1,document.documentElement.scrollHeight-innerHeight),p=Math.min(1,Math.max(0,scrollY/max));state.progress=p;updateCopy(Math.min(9,Math.floor(p*10)));document.documentElement.style.setProperty('--journey',p.toFixed(4));$('.anomaly-ui',ui).classList.toggle('show',p>.84&&p<.975);$('.end-card',ui).classList.toggle('show',p>.987);
+ const max=Math.max(1,document.documentElement.scrollHeight-innerHeight),p=Math.min(1,Math.max(0,scrollY/max));state.progress=p;updateCopy(Math.min(9,Math.floor(p*10)));document.documentElement.style.setProperty('--journey',p.toFixed(4));document.documentElement.classList.toggle('initial-flight',p<.012);$('.anomaly-ui',ui).classList.toggle('show',p>.84&&p<.975);$('.end-card',ui).classList.toggle('show',p>.987);
  window.__orbitalPanX+=(panTarget-window.__orbitalPanX)*.12;
  if(ctx&&state.sound){drone.frequency.setTargetAtTime(46+p*22,ctx.currentTime,.5);air.frequency.setTargetAtTime(92+p*36,ctx.currentTime,.7);}
  requestAnimationFrame(update);
 }requestAnimationFrame(update);
 
-// Desktop only: tiny pointer parallax. Mobile uses horizontal swipe instead.
 if(!('ontouchstart' in window)) addEventListener('pointermove',e=>{document.documentElement.style.setProperty('--px',((e.clientX/innerWidth-.5)*2).toFixed(3));document.documentElement.style.setProperty('--py',((e.clientY/innerHeight-.5)*2).toFixed(3));},{passive:true});
 
-// Mobile horizontal swipe pans only the look direction. Vertical gestures remain native page scrolling.
 const canvas=document.getElementById('world');
 if(canvas&&('ontouchstart' in window)){
  let sx=0,sy=0,active=false;
