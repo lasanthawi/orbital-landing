@@ -6,9 +6,9 @@ const loader=new GLTFLoader();
 let initialized=false;
 
 const urls={
-  iss:'https://cdn.jsdelivr.net/gh/nasa/NASA-3D-Resources@master/3D%20Models/International%20Space%20Station%20%28ISS%29%20%28B%29/International%20Space%20Station%20%28ISS%29%20%28B%29.glb',
-  astronaut:'https://cdn.jsdelivr.net/gh/nasa/NASA-3D-Resources@master/3D%20Models/Extravehicular%20Mobility%20Unit/Extravehicular%20Mobility%20Unit.glb',
-  shuttle:'https://cdn.jsdelivr.net/gh/nasa/NASA-3D-Resources@master/3D%20Models/Space%20Shuttle%20%28D%29/Space%20Shuttle%20%28D%29.glb'
+  iss:'https://assets.science.nasa.gov/content/dam/science/cds/3d/resources/model/international-space-station-%28iss%29-%28b%29/International%20Space%20Station%20%28ISS%29%20%28B%29.glb',
+  astronaut:'https://assets.science.nasa.gov/content/dam/science/cds/3d/resources/model/extravehicular-mobility-unit/Extravehicular%20Mobility%20Unit.glb',
+  shuttle:'https://assets.science.nasa.gov/content/dam/science/cds/3d/resources/model/space-shuttle-%28d%29/Space%20Shuttle%20%28D%29.glb'
 };
 
 function near(obj,x,y,z,tol=3){return obj?.position&&Math.abs(obj.position.x-x)<tol&&Math.abs(obj.position.y-y)<tol&&Math.abs(obj.position.z-z)<tol;}
@@ -32,7 +32,7 @@ function fitModel(root,targetSize){
 
 function mount(scene,url,{position,rotation=[0,0,0],size,name}){
   const holder=new THREE.Group();holder.name=name;holder.position.set(...position);holder.rotation.set(...rotation);holder.visible=false;scene.add(holder);
-  loader.load(url,gltf=>{holder.add(fitModel(gltf.scene,size));holder.userData.loaded=true;holder.visible=true;},undefined,err=>{console.warn(`NASA model failed: ${name}`,err);});
+  loader.load(url,gltf=>{holder.add(fitModel(gltf.scene,size));holder.userData.loaded=true;holder.visible=true;},undefined,err=>{console.error(`NASA model failed: ${name}`,url,err);});
   return holder;
 }
 
