@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
 <meta name="theme-color" content="#010205">
 <title>ORBITAL — Earth to the Unknown</title>
 <meta name="description" content="A scroll-directed cinematic journey from Earth through orbit, the planets and into a black hole.">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lasanthawi/orbital-landing@898ca08e3b53c99fb0be2ac2b0ac25ddac49cca2/styles.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lasanthawi/orbital-landing@898ca08e3b53c99fb0be2ac2b0ac25ddac49cca2/cinematic-v2.css">
-<link rel="stylesheet" href="./mobile-experience.css">
+<link rel="stylesheet" href="./styles.css?v=20260816-1305">
+<link rel="stylesheet" href="./cinematic-v2.css?v=20260816-1305">
+<link rel="stylesheet" href="./mobile-experience.css?v=20260816-1305">
 <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js"}}</script>
 </head>
 <body>
@@ -32,9 +32,8 @@
 <div class="hint" id="hint"><span></span><b>SCROLL TO DIRECT FLIGHT</b><small>move pointer to look around</small></div>
 <main id="start" aria-hidden="true"><section></section><section></section><section></section><section></section><section></section><section></section><section></section><section></section><section></section><section id="final"></section></main>
 <div class="fallback" id="fallback" hidden><h1>ORBITAL</h1><p>This experience needs WebGL hardware acceleration.</p></div>
-<script type="module" src="https://cdn.jsdelivr.net/gh/lasanthawi/orbital-landing@898ca08e3b53c99fb0be2ac2b0ac25ddac49cca2/cinematic-v3.js"></script>
-<script type="module" src="./nasa-models.js?v=20260816-1254"></script>
-<script type="module" src="./mobile-experience.js"></script>
+<script type="module" src="./cinematic-v3.js?v=20260816-1305"></script>
+<script type="module" src="./mobile-experience.js?v=20260816-1305"></script>
 <script>window.__orbitalStarted=false;setTimeout(()=>{if(!window.__orbitalStarted){const l=document.getElementById('loader');if(l)l.classList.add('done');const f=document.getElementById('fallback');f.hidden=false;f.innerHTML='<h1>ORBITAL</h1><p>The 3D scene could not start. Reload once in Safari or Chrome.</p>';}},6500);</script>
 </body>
 </html>
